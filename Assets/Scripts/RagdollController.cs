@@ -11,6 +11,13 @@ public class RagdollController : MonoBehaviour
         rigibodyParts = GetComponentsInChildren<Rigidbody>();
         MakeKinematic(true);
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            MakePhysical();
+        }
+    }
 
     private void MakeKinematic(bool isKinematic)
     {
@@ -19,15 +26,7 @@ public class RagdollController : MonoBehaviour
             rigibodyParts[i].isKinematic = isKinematic;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MakePhysical();
-        }
-    }
+ 
 
     private void MakePhysical()
     {
